@@ -83,7 +83,9 @@ export default {
 				'md': 'var(--shadow-md)',
 				'lg': 'var(--shadow-lg)',
 				'xl': 'var(--shadow-xl)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'glass': 'var(--shadow-glass)',
+				'float': 'var(--shadow-float)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
