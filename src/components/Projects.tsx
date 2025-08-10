@@ -104,9 +104,9 @@ const Projects = () => {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card 
+              <div 
                 key={index} 
-                className="glass-card overflow-hidden group relative"
+                className="project-card group"
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -162,22 +162,22 @@ const Projects = () => {
                   </div>
 
                   <div className="flex space-x-3">
-                    <Button variant="default" size="sm" className="flex-1">
-                      <ExternalLink size={16} className="mr-2" />
-                      View Details
+                    <Button variant="default" size="sm" className="flex-1 creative-button group">
+                      <ExternalLink size={16} className="mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                      <span className="relative z-10">View Details</span>
                     </Button>
-                    <Button variant="outline" size="sm">
-                      <Github size={16} />
+                    <Button variant="outline" size="sm" className="creative-button group">
+                      <Github size={16} className="group-hover:scale-110 transition-transform duration-300" />
                     </Button>
                   </div>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="hero" size="lg">
-              View All Projects
+            <Button variant="hero" size="lg" className="creative-button group">
+              <span className="relative z-10 group-hover:tracking-wider transition-all duration-300">View All Projects</span>
             </Button>
           </div>
         </div>
