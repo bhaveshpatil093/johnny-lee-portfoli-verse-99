@@ -49,7 +49,7 @@ const About = () => {
                 className="glass-card p-6 text-center magnetic-hover group relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-16 h-16 bg-accent/5 rounded-full blur-xl"></div>
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 floating-element relative z-10">
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:shadow-glow transition-all duration-300 relative z-10">
                   <skill.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-3 group-hover:text-accent transition-colors duration-300 relative z-10">

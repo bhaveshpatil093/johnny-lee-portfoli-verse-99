@@ -77,65 +77,86 @@ const Experience = () => {
           </div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-primary hidden md:block"></div>
+            {/* Enhanced Timeline line with gradient */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-primary to-accent rounded-full hidden md:block"></div>
+            {/* Timeline background glow */}
+            <div className="absolute left-7 top-0 bottom-0 w-3 bg-gradient-to-b from-accent/20 via-primary/20 to-accent/20 blur-sm rounded-full hidden md:block"></div>
 
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <div key={index} className="relative">
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg hidden md:block"></div>
+                <div key={index} className="relative group">
+                  {/* Enhanced Timeline dot with animation */}
+                  <div className="absolute left-5 w-6 h-6 bg-gradient-accent rounded-full border-4 border-background shadow-lg hidden md:block animate-glow-pulse group-hover:scale-125 transition-transform duration-300"></div>
+                  <div className="absolute left-6 w-4 h-4 bg-accent rounded-full hidden md:block animate-pulse"></div>
                   
-                  <Card className="ml-0 md:ml-20 glass-card p-6 magnetic-hover group relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-full blur-xl"></div>
+                  <div className="ml-0 md:ml-20 project-card p-6 group relative overflow-hidden">
+                    {/* Experience index number */}
+                    <div className="absolute top-4 left-4 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white text-sm font-bold">{index + 1}</span>
+                    </div>
+                    {/* Decorative background elements */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-accent/5 rounded-full blur-xl group-hover:bg-accent/10 transition-colors duration-300"></div>
+                    <div className="absolute bottom-0 left-1/3 w-16 h-16 bg-primary/5 rounded-full blur-lg"></div>
+                    
                     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4 relative z-10">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-primary mb-2">
+                        <h3 className="text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors duration-300">
                           {exp.title}
                         </h3>
-                        <div className="flex items-center space-x-2 text-lg font-semibold text-accent mb-2">
-                          <Building size={18} />
+                        <div className="flex items-center space-x-2 text-lg font-semibold text-accent mb-2 group-hover:scale-105 transition-transform duration-300">
+                          <Building size={18} className="animate-sparkle" />
                           <span>{exp.company}</span>
                         </div>
                       </div>
                       <div className="flex flex-col space-y-2 lg:text-right">
-                        <div className="flex items-center space-x-2 text-muted-foreground">
-                          <CalendarDays size={16} />
-                          <span className="text-sm">{exp.duration}</span>
+                        <div className="flex items-center space-x-2 text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                          <CalendarDays size={16} className="text-accent" />
+                          <span className="text-sm font-medium">{exp.duration}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-muted-foreground">
-                          <MapPin size={16} />
+                        <div className="flex items-center space-x-2 text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                          <MapPin size={16} className="text-accent" />
                           <span className="text-sm">{exp.location}</span>
                         </div>
-                        <Badge variant="secondary" className="w-fit">
+                        <Badge variant="secondary" className="w-fit bg-gradient-primary text-white border-none shadow-md group-hover:shadow-glow transition-all duration-300">
                           {exp.type}
                         </Badge>
                       </div>
                     </div>
 
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-primary mb-3">Key Responsibilities:</h4>
+                    <div className="mb-6 relative z-10">
+                      <h4 className="font-semibold text-primary mb-3 flex items-center">
+                        <div className="w-2 h-2 bg-gradient-accent rounded-full mr-2"></div>
+                        Key Responsibilities:
+                      </h4>
                       <ul className="space-y-2">
                         {exp.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
-                            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-muted-foreground">{responsibility}</span>
+                          <li key={idx} className="flex items-start space-x-3 group/item">
+                            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0 group-hover/item:scale-150 transition-transform duration-200"></div>
+                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors duration-200">{responsibility}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div>
-                      <h4 className="font-semibold text-primary mb-3">Skills & Technologies:</h4>
+                    <div className="relative z-10">
+                      <h4 className="font-semibold text-primary mb-3 flex items-center">
+                        <div className="w-2 h-2 bg-gradient-accent rounded-full mr-2"></div>
+                        Skills & Technologies:
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.skills.map((skill, idx) => (
-                          <Badge key={idx} variant="outline" className="bg-accent/10 text-accent border-accent/30">
+                          <Badge 
+                            key={idx} 
+                            variant="outline" 
+                            className="bg-accent/10 text-accent border-accent/30 hover:bg-accent/20 hover:scale-105 transition-all duration-200 creative-button"
+                            style={{ animationDelay: `${idx * 0.1}s` }}
+                          >
                             {skill}
                           </Badge>
                         ))}
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 </div>
               ))}
             </div>
